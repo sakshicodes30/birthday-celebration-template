@@ -5,7 +5,6 @@ import "./App.css";
 import CelebrationPage from "./components/CelebrationPage";
 import Countdown from "./components/Countdown";
 import Effects from "./components/Effects";
-import Gallery from "./components/Gallery";
 import Hearts from "./components/Hearts";
 import MessageCard from "./components/MessageCard";
 import MusicPlayer from "./components/MusicPlayer";
@@ -25,11 +24,10 @@ function App() {
   const page1Ref = useRef(null);
   const page2Ref = useRef(null);
   const page3Ref = useRef(null);
-  const page4Ref = useRef(null);
   const musicPlayerRef = useRef(null);
 
   const goToPage = (pageNumber) => {
-    const refs = { 1: page1Ref, 2: page2Ref, 3: page3Ref, 4: page4Ref };
+    const refs = { 1: page1Ref, 2: page2Ref, 3: page3Ref };
     const currentPageRef = refs[currentPage];
     const nextPageRef = refs[pageNumber];
 
@@ -77,7 +75,7 @@ function App() {
       <MusicPlayer ref={musicPlayerRef} />
       <Hearts />
 
-      {/* PAGE 1: COUNTDOWN */}
+      {/* PAGE 1: Countdown */}
       <div
         ref={page1Ref}
         className={`page ${currentPage === 1 ? "active" : ""}`}
@@ -87,12 +85,12 @@ function App() {
           <h1 id="heroTitle">
             {birthdayReached ? (
               <>
-                Happy Birthday <span className="highlight">Cadet ❤️</span> 🎂
+                Happy Birthday <span className="highlight">sir ji ❤️</span> 🎂
               </>
             ) : (
               <>
                 Counting down to{" "}
-                <span className="highlight">Cadet's</span> special day 🎂
+                <span className="highlight">sir ji's</span> special day 🎂
               </>
             )}
           </h1>
@@ -123,7 +121,7 @@ function App() {
         </button>
       </div>
 
-      {/* PAGE 2 */}
+      {/* PAGE 2: Celebration */}
       <div
         ref={page2Ref}
         className={`page ${currentPage === 2 ? "active" : ""}`}
@@ -135,7 +133,7 @@ function App() {
         />
       </div>
 
-      {/* PAGE 3 */}
+      {/* PAGE 3: Message */}
       <div
         ref={page3Ref}
         className={`page ${currentPage === 3 ? "active" : ""}`}
@@ -146,32 +144,6 @@ function App() {
         </button>
 
         <MessageCard isActive={currentPage === 3} />
-
-        <button className="page-nav-btn" onClick={() => goToPage(4)}>
-          📸 View Our Memories
-        </button>
-      </div>
-
-      {/* PAGE 4 */}
-      <div
-        ref={page4Ref}
-        className={`page ${currentPage === 4 ? "active" : ""}`}
-        style={{ visibility: currentPage === 4 ? "visible" : "hidden" }}
-      >
-        <button className="back-btn" onClick={() => goToPage(3)}>
-          ← Back
-        </button>
-
-        <Gallery isActive={currentPage === 4} />
-
-        <section className="final">
-          <h2 className="final-message">
-            💖 Forever Yours — Sakshi 💖
-          </h2>
-          <p className="final-subtitle">
-            Always wishing the best for you ✨
-          </p>
-        </section>
       </div>
 
       {showEffects && <Effects />}
