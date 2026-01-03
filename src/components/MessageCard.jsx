@@ -12,8 +12,8 @@ function MessageCard({ isActive }) {
 
   if (!show) return null;
 
-  const recipientName = "Sattu";
-  const senderName = "Sakshi";
+  const recipientName = "Sattu❤️";
+  const senderName = "Sukku💖";
 
   const message = `Happy Birthday mere pyare se baby ❤️🎂
 
