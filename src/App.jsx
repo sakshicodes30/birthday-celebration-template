@@ -5,6 +5,7 @@ import "./App.css";
 import CelebrationPage from "./components/CelebrationPage";
 import Countdown from "./components/Countdown";
 import Effects from "./components/Effects";
+import Gallery from "./components/Gallery";
 import Hearts from "./components/Hearts";
 import MessageCard from "./components/MessageCard";
 import MusicPlayer from "./components/MusicPlayer";
@@ -31,6 +32,7 @@ function App() {
     const refs = { 1: page1Ref, 2: page2Ref, 3: page3Ref, 4: page4Ref };
     const currentPageRef = refs[currentPage];
     const nextPageRef = refs[pageNumber];
+
     const isForward = pageNumber > currentPage;
 
     gsap.to(currentPageRef.current, {
@@ -54,7 +56,10 @@ function App() {
       delay: 0.2,
       onComplete: () => {
         setCurrentPage(pageNumber);
-        gsap.set(currentPageRef.current, { x: "0%", visibility: "hidden" });
+        gsap.set(currentPageRef.current, {
+          x: "0%",
+          visibility: "hidden",
+        });
         gsap.to(window, { duration: 0.3, scrollTo: { y: 0 } });
       },
     });
@@ -72,7 +77,7 @@ function App() {
       <MusicPlayer ref={musicPlayerRef} />
       <Hearts />
 
-      {/* PAGE 1: Countdown Timer */}
+      {/* PAGE 1: COUNTDOWN */}
       <div
         ref={page1Ref}
         className={`page ${currentPage === 1 ? "active" : ""}`}
@@ -82,15 +87,16 @@ function App() {
           <h1 id="heroTitle">
             {birthdayReached ? (
               <>
-                Happy Birthday <span className="highlight">Sattu</span> 🎂
+                Happy Birthday <span className="highlight">Cadet ❤️</span> 🎂
               </>
             ) : (
               <>
-                Counting down to <span className="highlight">Sattu's</span> special day 🎂
+                Counting down to{" "}
+                <span className="highlight">Cadet's</span> special day 🎂
               </>
             )}
           </h1>
-          <p>Hope this little surprise makes your day extra special 💗</p>
+          <p>A small surprise made with lots of love 💗</p>
         </section>
 
         <Countdown
@@ -104,7 +110,7 @@ function App() {
               ? "💖 Ready for your surprise! 💖"
               : "✨ A special celebration awaits you at midnight... ✨"}
           </h2>
-          <p className="teaser-hint">Get ready to feel the magic 💫</p>
+          <p className="teaser-hint">Something magical is about to unfold 💫</p>
         </section>
 
         <button
@@ -117,7 +123,7 @@ function App() {
         </button>
       </div>
 
-      {/* PAGE 2: Celebration/QNA Page */}
+      {/* PAGE 2 */}
       <div
         ref={page2Ref}
         className={`page ${currentPage === 2 ? "active" : ""}`}
@@ -129,7 +135,7 @@ function App() {
         />
       </div>
 
-      {/* PAGE 3: Message Card */}
+      {/* PAGE 3 */}
       <div
         ref={page3Ref}
         className={`page ${currentPage === 3 ? "active" : ""}`}
@@ -138,28 +144,36 @@ function App() {
         <button className="back-btn" onClick={() => goToPage(2)}>
           ← Back
         </button>
+
         <MessageCard isActive={currentPage === 3} />
+
         <button className="page-nav-btn" onClick={() => goToPage(4)}>
-          🎀 Final Surprise
+          📸 View Our Memories
         </button>
       </div>
 
-      {/* PAGE 4: Final Celebration */}
+      {/* PAGE 4 */}
       <div
         ref={page4Ref}
         className={`page ${currentPage === 4 ? "active" : ""}`}
         style={{ visibility: currentPage === 4 ? "visible" : "hidden" }}
       >
-        <section className="final">
-          <h2 className="final-message">💖 Forever Yours — Sakshi 💖</h2>
-          <p className="final-subtitle">Always yours, forever 💫</p>
-        </section>
         <button className="back-btn" onClick={() => goToPage(3)}>
           ← Back
         </button>
+
+        <Gallery isActive={currentPage === 4} />
+
+        <section className="final">
+          <h2 className="final-message">
+            💖 Forever Yours — Sakshi 💖
+          </h2>
+          <p className="final-subtitle">
+            Always wishing the best for you ✨
+          </p>
+        </section>
       </div>
 
-      {/* Effects */}
       {showEffects && <Effects />}
     </div>
   );
