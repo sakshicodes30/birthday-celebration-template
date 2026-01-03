@@ -85,12 +85,12 @@ function App() {
           <h1 id="heroTitle">
             {birthdayReached ? (
               <>
-                Happy Birthday <span className="highlight">sir ji ❤️</span> 🎂
+                Happy Birthday <span className="highlight">Baby❤️</span> 🎂
               </>
             ) : (
               <>
                 Counting down to{" "}
-                <span className="highlight">sir ji's</span> special day 🎂
+                <span className="highlight">My Cadet's</span> special day 🎂
               </>
             )}
           </h1>
