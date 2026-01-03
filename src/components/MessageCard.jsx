@@ -20,7 +20,10 @@ function MessageCard({ isActive }) {
 Bhagwan kare aapka ye saal aur aane wala har saal
 aapke liye khushhiiiiii😆 aur success leke aaye
 Aap jo bhi chaho zindagi mai wo aapko mile,waise to mai aapse aaj bahut gussa thi par ekdam se yaad aaya mere pyare baby ka birthday hai aur ab mai usse kaise gussa reh sakti hu to gussa iske baad se continue hoga pr aap mere liye bht special ho to jitna special mujhse ho sakta h mai aapko karwaungi feel mere mature cadet baki bas aise hi haste raho ghumte raho,
-aur hamesha khush raho 😘✨`;
+aur hamesha khush raho 😘✨
+Mai hamesha aapke sath rahungi agar aap thode se kam chalak banoge mere sath
+
+ I love you ❤️`;
 
   return (
     <div className="message-card">
